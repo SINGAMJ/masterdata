@@ -1,0 +1,24 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/MasterDataDetails('MA591G%2FC')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/MasterDataDetails('MA591G%2FC')",
+                    "type": "MasterDataService.MasterDataDetails"
+                },
+                "Material": "MA591G/C",
+                "Description": "30-PIN TO USB CABLE-GEN",
+                "Product_Hierarchy": "6BAMBBMCCM7PPMA591",
+                "Material_Group": "46",
+                "Config_Code": "XV7701",
+                "Packing_Code": "8600020011",
+                "Volume": "5.475",
+                "Volume_Unit": "CIQ",
+                "Weight": "0.088",
+                "Weight_Unit": "LB",
+                "Created_On": "20120828"
+            }
+        ]
+    }
+}

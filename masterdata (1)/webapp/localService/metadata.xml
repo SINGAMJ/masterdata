@@ -1,0 +1,239 @@
+<?xml version="1.0" ?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"></edmx:Include>
+    </edmx:Reference>
+    <edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"></edmx:Include>
+    </edmx:Reference>
+    <edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"></edmx:Include>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="1.0"
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+        <Schema Namespace="MasterDataService"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="MasterdataList">
+                <Key>
+                    <PropertyRef Name="Material"></PropertyRef>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18"></Property>
+                <Property Name="Description" Type="Edm.String" MaxLength="40"></Property>
+                <Property Name="Vendor" Type="Edm.String" MaxLength="10"></Property>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4"></Property>
+                <NavigationProperty Name="Details" Relationship="MasterDataService.MasterdataList_Details" FromRole="MasterdataList" ToRole="MasterDataDetails"></NavigationProperty>
+            </EntityType>
+            <EntityType Name="MasterDataDetails">
+                <Key>
+                    <PropertyRef Name="Material"></PropertyRef>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18"></Property>
+                <Property Name="Description" Type="Edm.String" MaxLength="40"></Property>
+                <Property Name="Product_Hierarchy" Type="Edm.String" MaxLength="18"></Property>
+                <Property Name="Material_Group" Type="Edm.String" MaxLength="9"></Property>
+                <Property Name="Config_Code" Type="Edm.String" MaxLength="10"></Property>
+                <Property Name="Packing_Code" Type="Edm.String" MaxLength="40"></Property>
+                <Property Name="Volume" Type="Edm.String" MaxLength="13"></Property>
+                <Property Name="Volume_Unit" Type="Edm.String" MaxLength="3"></Property>
+                <Property Name="Weight" Type="Edm.String" MaxLength="13"></Property>
+                <Property Name="Weight_Unit" Type="Edm.String" MaxLength="3"></Property>
+                <Property Name="Created_On" Type="Edm.String" MaxLength="8"></Property>
+            </EntityType>
+            <EntityType Name="Material">
+                <Key>
+                    <PropertyRef Name="Material"></PropertyRef>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18"></Property>
+            </EntityType>
+            <EntityType Name="Plant">
+                <Key>
+                    <PropertyRef Name="Plant"></PropertyRef>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"></Property>
+            </EntityType>
+            <EntityType Name="Description">
+                <Key>
+                    <PropertyRef Name="Description"></PropertyRef>
+                </Key>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40"></Property>
+            </EntityType>
+            <EntityType Name="Vendor">
+                <Key>
+                    <PropertyRef Name="Vendor"></PropertyRef>
+                </Key>
+                <Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10"></Property>
+            </EntityType>
+            <Association Name="MasterdataList_Details">
+                <End Type="MasterDataService.MasterdataList" Multiplicity="*" Role="MasterdataList"></End>
+                <End Type="MasterDataService.MasterDataDetails" Multiplicity="*" Role="MasterDataDetails"></End>
+            </Association>
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="MasterdataList" EntityType="MasterDataService.MasterdataList"></EntitySet>
+                <EntitySet Name="MasterDataDetails" EntityType="MasterDataService.MasterDataDetails"></EntitySet>
+                <EntitySet Name="Material" EntityType="MasterDataService.Material"></EntitySet>
+                <EntitySet Name="Plant" EntityType="MasterDataService.Plant"></EntitySet>
+                <EntitySet Name="Description" EntityType="MasterDataService.Description"></EntitySet>
+                <EntitySet Name="Vendor" EntityType="MasterDataService.Vendor"></EntitySet>
+                <AssociationSet Name="MasterdataList_Details" Association="MasterDataService.MasterdataList_Details">
+                    <End EntitySet="MasterdataList" Role="MasterdataList"></End>
+                    <End EntitySet="MasterDataDetails" Role="MasterDataDetails"></End>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterdataList">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="UI.SelectionFields">
+                    <Collection xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                        <PropertyPath xmlns="http://docs.oasis-open.org/odata/ns/edm">Material</PropertyPath>
+                        <PropertyPath xmlns="http://docs.oasis-open.org/odata/ns/edm">Vendor</PropertyPath>
+                        <PropertyPath xmlns="http://docs.oasis-open.org/odata/ns/edm">Description</PropertyPath>
+                        <PropertyPath xmlns="http://docs.oasis-open.org/odata/ns/edm">Plant</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="UI.LineItem">
+                    <Collection xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                        <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="UI.DataField">
+                            <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Value" Path="Material"></PropertyValue>
+                        </Record>
+                        <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="UI.DataField">
+                            <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Value" Path="Description"></PropertyValue>
+                        </Record>
+                    </Collection>
+                    <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"></Annotation>
+                </Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.Description" String=" Annotations"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterdataList/Material">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"></Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.ValueList">
+                    <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListType">
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="CollectionPath" String="Material"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Label" String="Material"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Parameters">
+                            <Collection xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                                <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListParameterOut">
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="LocalDataProperty" PropertyPath="Material"></PropertyValue>
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="ValueListProperty" String="Material"></PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Material"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterdataList/Description">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"></Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.ValueList">
+                    <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListType">
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="CollectionPath" String="Description"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Label" String="Description"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Parameters">
+                            <Collection xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                                <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListParameterOut">
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="LocalDataProperty" PropertyPath="Description"></PropertyValue>
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="ValueListProperty" String="Description"></PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Description"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterdataList/Vendor">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"></Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.ValueList">
+                    <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListType">
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="CollectionPath" String="Vendor"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Label" String="Vendor"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Parameters">
+                            <Collection xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                                <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListParameterOut">
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="LocalDataProperty" PropertyPath="Vendor"></PropertyValue>
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="ValueListProperty" String="Vendor"></PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Vendor"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterdataList/Plant">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"></Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.ValueList">
+                    <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListType">
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="CollectionPath" String="Plant"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Label" String="Plant"></PropertyValue>
+                        <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="Parameters">
+                            <Collection xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                                <Record xmlns="http://docs.oasis-open.org/odata/ns/edm" Type="Common.ValueListParameterOut">
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="LocalDataProperty" PropertyPath="Plant"></PropertyValue>
+                                    <PropertyValue xmlns="http://docs.oasis-open.org/odata/ns/edm" Property="ValueListProperty" String="Plant"></PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Plant"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.Description" String="Entities"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Material">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Material"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Description">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Description"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Product_Hierarchy">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Product Hierarchy"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Material_Group">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Material Group"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Config_Code">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Config Code"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Packing_Code">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Packing Code"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Volume">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Volume"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Volume_Unit">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Volume Unit"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Weight">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Weight"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Weight_Unit">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Weight unit"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.MasterDataDetails/Created_On">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Created On: "></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Material">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.Description" String=" Views"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Material/Material">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Material"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Plant">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.Description" String="Entities"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Plant/Plant">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Plant"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Description">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.Description" String="Entities"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Description/Description">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Description"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Vendor">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.Description" String="Entities"></Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="MasterDataService.Vendor/Vendor">
+                <Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Common.Label" String="Vendor"></Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

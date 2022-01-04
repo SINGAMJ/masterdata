@@ -1,0 +1,52 @@
+<mvc:View controllerName="com.apple.scp.masterdata.controller.MasterData"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:F="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:l="sap.ui.layout"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable">
+
+    <Page id="page" title="{i18n>title}" showHeader="false">
+        <content>
+            <FlexBox id="idFb" alignItems="Center" justifyContent="Start" class="zprofileBanner">
+                <items>
+                    <Title text="{i18n>appTitle}" class="zPageTitle sapUiMediumMarginBeginEnd"></Title>
+                </items>
+            </FlexBox>
+            <Panel expandable="true" expanded="true" headerText="Filter" width="auto" class="zFilterPanel sapUiMediumMarginBeginEnd sapUiMediumMarginTop">
+                <content>
+                    <l:VerticalLayout>
+                        <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="MasterdataList" showGoOnFB="false" showRestoreButton="false" showFilterConfiguration="false" useToolbar="false">
+                            <smartFilterBar:layoutData>
+                                <FlexItemData shrinkFactor="0"/>
+                            </smartFilterBar:layoutData>
+                        </smartFilterBar:SmartFilterBar>
+                    </l:VerticalLayout>
+                    <FlexBox justifyContent="End" class="sapUiSmallMarginEnd">
+                        <items>
+                            <Button id="idClear" text="{i18n>button.Clear}" press="onClear" class="zclearButton"/>
+                            <Button id="idSearch" text="{i18n>button.Search}" press="onSearch" class="zsearchButton" type="Emphasized"/>
+                        </items>
+                    </FlexBox>
+                </content>
+            </Panel>
+            <Panel class='zMasterDataTable'>
+                <content>
+                    <smartTable:SmartTable id="masterSmartTable" entitySet="MasterdataList" tableType="ResponsiveTable" smartFilterId="smartFilterBar" useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true" header="{i18n>appTitle}" showRowCount="true" demandPopin="true" beforeRebindTable="beforeTableRebind" class="zMasterDataTable-table-cls">
+                        <Table id="innerTable" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                            <items>
+                                <ColumnListItem type="Navigation" press="navigateToMasterDetails">
+                                    <cells>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </smartTable:SmartTable>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

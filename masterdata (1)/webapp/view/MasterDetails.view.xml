@@ -1,0 +1,50 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.apple.scp.masterdata.controller.MasterDetails"
+    xmlns:objectPage="sap.uxap"
+    xmlns="sap.m"
+    xmlns:F="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:forms="sap.ui.layout.form" height="100%">
+
+    <Page showHeader="false">
+        <content>
+            <FlexBox id="idFB" alignItems="Center" justifyContent="Start" class="zprofileBanner">
+                <items>
+                    <F:Avatar id="idBack" displaySize="XS" initials="PB" src="sap-icon://nav-back" press="navigateToHome" class="sapUiTinyMarginBeginEnd zIcon-cls"/>
+                    <Title text="{i18n>detailPageTitle} - {masterModel>/results/0/Material}" class="zPageTitle sapUiTinyMarginBeginEnd"></Title>
+                </items>
+            </FlexBox>
+
+            <VBox class="sapUiSmallMargin zDetails-Cls">
+                    <forms:SimpleForm class="zHeader-Cls" 
+                    layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2">
+                        <Label text="{i18n>detailPage.MPN}" />
+                        <Text text="{masterModel>/results/0/Material}" />
+                        <Label text="{i18n>detailPage.ProHeirarchy}" />
+                        <Text text="{masterModel>/results/0/Product_Hierarchy}" />
+                        <Label text="{i18n>detailPage.ConfigCode}" />
+                        <Text text="{masterModel>/results/0/Config_Code}" />
+                        <Label text="{i18n>detailPage.EPNUPS}" />
+                        <Text text="{masterModel>/results/0/Config_Code}" />
+                        <Label text="{i18n>detailPage.PackingCode}" />
+                        <Text text="{masterModel>/results/0/Packing_Code}" />
+                        <Label text="{i18n>detailPage.CreatedOn}" />
+                        <Text text="{path:'masterModel>/results/0/Created_On',formatter:'.formatter.formatDate'}" />
+                        <Label text="{i18n>detailPage.Desc}" />
+                        <Text text="{masterModel>/results/0/Description}" />
+                        <Label text="{i18n>detailPage.MaterialGroup}" />
+                        <Text text="{masterModel>/results/0/Material_Group}" />
+                        <Label text="{i18n>detailPage.Volume}" />
+                        <Text text="{masterModel>/results/0/Volume}" />
+                        <Label text="{i18n>detailPage.VolumeUnit}" />
+                        <Text text="{masterModel>/results/0/Volume_Unit}" />
+                        <Label text="{i18n>detailPage.Weight}" />
+                        <Text text="{masterModel>/results/0/Weight}" />
+                        <Label text="{i18n>detailPage.WeightUnit}" />
+                        <Text text="{masterModel>/results/0/Weight_Unit}" />
+
+                    </forms:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>

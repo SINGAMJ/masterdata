@@ -1,0 +1,102 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MA591G%2FC')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MA591G%2FC')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MA591G/C"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MC270ZP%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MC270ZP%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MC270ZP/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MC413BZ%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MC413BZ%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MC413BZ/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MC413BZ%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MC413BZ%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MC413BZ/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MD101LL%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MD101LL%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MD101LL/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MG472LL%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MG472LL%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MG472LL/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MGKM2HC%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MGKM2HC%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MGKM2HC/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MH0W2HN%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MH0W2HN%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MH0W2HN/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MN8Y2B%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MN8Y2B%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MN8Y2B/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MNQN2PM%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MNQN2PM%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MNQN2PM/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MNQN2RM%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MNQN2RM%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MNQN2RM/A"
+            },
+            {
+                "__metadata": {
+                    "id": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MYDM2AE%2FA')",
+                    "uri": "https://olympusoem-dev-cp.corp.apple.com:10443/odata/v2/MasterDataService/Material('MYDM2AE%2FA')",
+                    "type": "MasterDataService.Material"
+                },
+                "Material": "MYDM2AE/A"
+            }
+        ]
+    }
+}
